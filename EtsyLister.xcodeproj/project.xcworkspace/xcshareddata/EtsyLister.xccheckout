@@ -5,24 +5,20 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>03D768C9-2B84-4F7B-8690-F4C9FABF6087</string>
+	<string>CF395301-A56C-4295-A147-BC084B89CE10</string>
 	<key>IDESourceControlProjectName</key>
 	<string>EtsyLister</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>AE4D515805DB37EF4AC163394B2F4562FFEA0884</key>
 		<string>ssh://stormborn.bk.mti.io/git/EtsyLister.git</string>
-		<key>BD54C4E64BDDB1CD9FFB641EFB98222B4FA45CEB</key>
-		<string>github.com:FivesquareSoftware/Cumulus.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>EtsyLister.xcworkspace</string>
+	<string>EtsyLister.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>AE4D515805DB37EF4AC163394B2F4562FFEA0884</key>
-		<string>..</string>
-		<key>BD54C4E64BDDB1CD9FFB641EFB98222B4FA45CEB</key>
-		<string>..External/Cumulus/</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://stormborn.bk.mti.io/git/EtsyLister.git</string>
@@ -32,14 +28,6 @@
 	<string>AE4D515805DB37EF4AC163394B2F4562FFEA0884</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
-		<dict>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.git</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BD54C4E64BDDB1CD9FFB641EFB98222B4FA45CEB</string>
-			<key>IDESourceControlWCCName</key>
-			<string>Cumulus</string>
-		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

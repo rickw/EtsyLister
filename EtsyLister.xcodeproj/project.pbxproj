@@ -15,6 +15,9 @@
 		1D6EB4F61A79636D00B3A617 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6EB4F41A79636D00B3A617 /* LaunchScreen.xib */; };
 		1D6EB5021A79636D00B3A617 /* EtsyListerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5011A79636D00B3A617 /* EtsyListerTests.m */; };
 		1D6EB5101A796DA800B3A617 /* EtsyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */; };
+		1D6EB5211A7970C700B3A617 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5201A7970C700B3A617 /* Security.framework */; };
+		1D6EB5231A7974FE00B3A617 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */; };
+		1D6EB5251A79773400B3A617 /* libCumulus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5241A79773400B3A617 /* libCumulus.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,9 @@
 		1D6EB5011A79636D00B3A617 /* EtsyListerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EtsyListerTests.m; sourceTree = "<group>"; };
 		1D6EB50E1A796DA800B3A617 /* EtsyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtsyDataSource.h; sourceTree = "<group>"; };
 		1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtsyDataSource.m; sourceTree = "<group>"; };
+		1D6EB5201A7970C700B3A617 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		1D6EB5241A79773400B3A617 /* libCumulus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCumulus.a; path = "External/Cumulus/build/Debug-iphoneos/libCumulus.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6EB5251A79773400B3A617 /* libCumulus.a in Frameworks */,
+				1D6EB5231A7974FE00B3A617 /* MobileCoreServices.framework in Frameworks */,
+				1D6EB5211A7970C700B3A617 /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,7 @@
 		1D6EB4D91A79636D00B3A617 = {
 			isa = PBXGroup;
 			children = (
+				1D6EB5261A797F2B00B3A617 /* Frameworks */,
 				1D6EB4E41A79636D00B3A617 /* EtsyLister */,
 				1D6EB4FE1A79636D00B3A617 /* EtsyListerTests */,
 				1D6EB4E31A79636D00B3A617 /* Products */,
@@ -122,6 +132,16 @@
 				1D6EB5001A79636D00B3A617 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1D6EB5261A797F2B00B3A617 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D6EB5241A79773400B3A617 /* libCumulus.a */,
+				1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */,
+				1D6EB5201A7970C700B3A617 /* Security.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,8 +373,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/External/Cumulus/Source/**",
+				);
 				INFOPLIST_FILE = EtsyLister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/Cumulus/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -364,8 +394,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/External/Cumulus/Source/**",
+				);
 				INFOPLIST_FILE = EtsyLister/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/Cumulus/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

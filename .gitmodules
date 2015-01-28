@@ -1,0 +1,3 @@
+[submodule "External/Cumulus"]
+	path = External/Cumulus
+	url = git@github.com:FivesquareSoftware/Cumulus.git

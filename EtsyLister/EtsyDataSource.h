@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Rick Windham. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface EtsyDataSource : NSObject
+typedef void (^LoadBlock)();
 
+@interface EtsyDataSource : NSObject <UITableViewDataSource>
+@property (nonatomic, copy) LoadBlock  block;
+
+- (void)getFirstPageWithBlock:(LoadBlock)block;
 @end
