@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>03D768C9-2B84-4F7B-8690-F4C9FABF6087</string>
+	<key>IDESourceControlProjectName</key>
+	<string>EtsyLister</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AE4D515805DB37EF4AC163394B2F4562FFEA0884</key>
+		<string>ssh://stormborn.bk.mti.io/git/EtsyLister.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>EtsyLister/EtsyLister.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AE4D515805DB37EF4AC163394B2F4562FFEA0884</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://stormborn.bk.mti.io/git/EtsyLister.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AE4D515805DB37EF4AC163394B2F4562FFEA0884</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AE4D515805DB37EF4AC163394B2F4562FFEA0884</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EtsyLister</string>
+		</dict>
+	</array>
+</dict>
+</plist>

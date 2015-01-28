@@ -14,6 +14,7 @@
 		1D6EB4F31A79636D00B3A617 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D6EB4F21A79636D00B3A617 /* Images.xcassets */; };
 		1D6EB4F61A79636D00B3A617 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D6EB4F41A79636D00B3A617 /* LaunchScreen.xib */; };
 		1D6EB5021A79636D00B3A617 /* EtsyListerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5011A79636D00B3A617 /* EtsyListerTests.m */; };
+		1D6EB5101A796DA800B3A617 /* EtsyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		1D6EB4FB1A79636D00B3A617 /* EtsyListerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EtsyListerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6EB5001A79636D00B3A617 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D6EB5011A79636D00B3A617 /* EtsyListerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EtsyListerTests.m; sourceTree = "<group>"; };
+		1D6EB50E1A796DA800B3A617 /* EtsyDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtsyDataSource.h; sourceTree = "<group>"; };
+		1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtsyDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				1D6EB4F21A79636D00B3A617 /* Images.xcassets */,
 				1D6EB4F41A79636D00B3A617 /* LaunchScreen.xib */,
 				1D6EB4E51A79636D00B3A617 /* Supporting Files */,
+				1D6EB50E1A796DA800B3A617 /* EtsyDataSource.h */,
+				1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */,
 			);
 			path = EtsyLister;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 				1D6EB4EE1A79636D00B3A617 /* ViewController.m in Sources */,
 				1D6EB4EB1A79636D00B3A617 /* AppDelegate.m in Sources */,
 				1D6EB4E81A79636D00B3A617 /* main.m in Sources */,
+				1D6EB5101A796DA800B3A617 /* EtsyDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +423,7 @@
 				1D6EB5071A79636D00B3A617 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D6EB5081A79636D00B3A617 /* Build configuration list for PBXNativeTarget "EtsyListerTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +432,7 @@
 				1D6EB50A1A79636D00B3A617 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
