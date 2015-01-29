@@ -34,14 +34,17 @@
 
 - (void)testQueryResultSize {
     XCTestExpectation *pageLaded = [self expectationWithDescription:@"Page Loaded"];
+    __weak EtsyListerTests *weakSelf = self;
     _dataSource.loadBlock = ^{
-        XCTAssertEqual(50100, [_dataSource tableView:_tableView numberOfRowsInSection:1], @"supposed to be 50100");
+        XCTAssertEqual(50100, [weakSelf.dataSource tableView:weakSelf.tableView numberOfRowsInSection:1], @"supposed to be 50100");
         [pageLaded fulfill];
     };
     
     [_dataSource getFirstPageForTableView:_tableView withKeywords:@"leather"];
     
-    [self waitForExpectationsWithTimeout:5 handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:^(NSError *err){
+        _dataSource.loadBlock = nil;
+    }];
 }
 
 //- (void)testPerformanceExample {

@@ -8,6 +8,7 @@
 
 #import "EtsyDataSource.h"
 #import "Cumulus.h"
+#import "EtsyCell.h"
 
 @interface EtsyDataSource ()
 @property (strong, nonatomic) CMResource        *etsy;
@@ -94,29 +95,37 @@
 
 #pragma mark - table view methods
 
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSLog(@"end decelerating");
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // this isn't the best way to load more data, but it works for now
     if (_fetchingNext == NO && indexPath.row >= _results.count - 10) {
         _fetchingNext = YES;
         [self fetchNextPageForTableView:tableView];
     }
     
+    NSLog(@"===> %lu %li", (unsigned long)_results.count, (long)indexPath.row);
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EtsyCell"];
+    EtsyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EtsyCell"];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] init];
+        cell = [[EtsyCell alloc] init];
     }
     
-    if (indexPath.row > _results.count -1) {
+    if (indexPath.row >= _results.count) {
         cell.textLabel.text = @"Loading...";
     } else {
         cell.textLabel.text = [[_results objectAtIndex:indexPath.row] objectForKey:@"title"];
     }
     
+    [cell fadeIn];
+    
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _totalCount.intValue;
+    return _totalCount.intValue + 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

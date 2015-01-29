@@ -18,6 +18,7 @@
 		1D6EB5211A7970C700B3A617 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5201A7970C700B3A617 /* Security.framework */; };
 		1D6EB5231A7974FE00B3A617 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */; };
 		1D6EB5251A79773400B3A617 /* libCumulus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5241A79773400B3A617 /* libCumulus.a */; };
+		1D6EB5291A7AB74B00B3A617 /* EtsyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5281A7AB74B00B3A617 /* EtsyCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		1D6EB5201A7970C700B3A617 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		1D6EB5241A79773400B3A617 /* libCumulus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCumulus.a; path = "External/Cumulus/build/Debug-iphoneos/libCumulus.a"; sourceTree = "<group>"; };
+		1D6EB5271A7AB74B00B3A617 /* EtsyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtsyCell.h; sourceTree = "<group>"; };
+		1D6EB5281A7AB74B00B3A617 /* EtsyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtsyCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				1D6EB4E51A79636D00B3A617 /* Supporting Files */,
 				1D6EB50E1A796DA800B3A617 /* EtsyDataSource.h */,
 				1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */,
+				1D6EB5271A7AB74B00B3A617 /* EtsyCell.h */,
+				1D6EB5281A7AB74B00B3A617 /* EtsyCell.m */,
 			);
 			path = EtsyLister;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6EB5291A7AB74B00B3A617 /* EtsyCell.m in Sources */,
 				1D6EB4EE1A79636D00B3A617 /* ViewController.m in Sources */,
 				1D6EB4EB1A79636D00B3A617 /* AppDelegate.m in Sources */,
 				1D6EB4E81A79636D00B3A617 /* main.m in Sources */,

@@ -22,7 +22,7 @@
     
     _dataSource = [[EtsyDataSource alloc] init];
     _tableView.dataSource = _dataSource;
-    _tableView.delegate = self;
+    _tableView.delegate = _dataSource;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -34,6 +34,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    NSLog(@"DID RECEIVE");
 }
 
 @end
