@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="height" constant="780" id="ckK-QE-GMM"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EtsyCell" id="xMq-kd-RA3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EtsyCell" id="xMq-kd-RA3" customClass="EtsyCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xMq-kd-RA3" id="qCR-NM-tqE">
