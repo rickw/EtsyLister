@@ -26,7 +26,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-//    ViewController *__weak weakSelf = self;
+    [super viewWillAppear:animated];
 
     [_dataSource getFirstPageForTableView:_tableView withKeywords:@"Build Along Leather Pattern 2: Coin and Card Wallets"];
 }
