@@ -26,16 +26,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    ViewController *__weak weakSelf = self;
-    
-    _dataSource.block = ^{
-        NSLog(@"I AM BLOCK");
-        [weakSelf.tableView reloadData];
-    };
-    
-    [_dataSource getFirstPageWithBlock:^{
-        [_tableView reloadData];
-    }];
+//    ViewController *__weak weakSelf = self;
+
+    [_dataSource getFirstPageForTableView:_tableView withKeywords:@"Build Along Leather Pattern 2: Coin and Card Wallets"];
 }
 
 - (void)didReceiveMemoryWarning {

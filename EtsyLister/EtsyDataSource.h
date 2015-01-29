@@ -11,7 +11,7 @@
 typedef void (^LoadBlock)();
 
 @interface EtsyDataSource : NSObject <UITableViewDataSource>
-@property (nonatomic, copy) LoadBlock  block;
+@property (nonatomic, copy) LoadBlock loadBlock;
 
-- (void)getFirstPageWithBlock:(LoadBlock)block;
+- (void)getFirstPageForTableView:(UITableView *)tableView withKeywords:(NSString *)keywords;
 @end

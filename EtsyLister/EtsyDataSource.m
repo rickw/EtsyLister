@@ -25,8 +25,7 @@
     if (self = [super init]) {
         _etsy = [CMResource withURL:@"https://api.etsy.com/v2/listings/active"];
         _etsy.query = @{@"api_key": @"liwecjs0c3ssk6let4p1wqt9",
-                        @"includes": @"MainImage",
-                        @"keywords": @"leather"};
+                        @"includes": @"MainImage"};
         _results = [NSMutableArray array];
         _fetchingNext = NO;
         NSLog(@"initialized...");
@@ -37,8 +36,17 @@
 
 #pragma mark - data fetching methods
 
-- (void)getFirstPageWithBlock:(LoadBlock)block {
+- (void)getFirstPageForTableView:(UITableView *)tableView withKeywords:(NSString *)keywords {
     NSLog(@"getResults");
+    [_results removeAllObjects];
+    _totalCount = nil;
+    _nextPage = nil;
+    
+    NSMutableDictionary *newQuery = [NSMutableDictionary dictionaryWithDictionary:_etsy.query];
+    newQuery[@"keywords"] = [keywords stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    [newQuery removeObjectForKey:@"page"];
+    _etsy.query = newQuery;
+    
     [_etsy getWithCompletionBlock:^(CMResponse *response) {
         _totalCount = [response.result objectForKey:@"count"];
         _nextPage = [[response.result objectForKey:@"pagination"] objectForKey:@"next_page"];
@@ -47,11 +55,17 @@
         
         NSLog(@"---> %lu ---> %@ ---> %@", (unsigned long)_results.count, _nextPage, _totalCount);
         
-        dispatch_async(dispatch_get_main_queue(), block);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [tableView reloadData];
+            
+            if (_loadBlock) {
+                _loadBlock();
+            }
+        });
     }];
 }
 
-- (void)fetchNextPage {
+- (void)fetchNextPageForTableView:(UITableView *)tableView {
     if (_nextPage) {
         NSLog(@"fetching...");
         NSMutableDictionary *newQuery = [NSMutableDictionary dictionaryWithDictionary:_etsy.query];
@@ -64,7 +78,11 @@
             [_results addObjectsFromArray:[response.result objectForKey:@"results"]];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                _block();
+                [tableView reloadData];
+                
+                if (_loadBlock) {
+                    _loadBlock();
+                }
                 _fetchingNext = NO;
             });
             
@@ -78,7 +96,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_fetchingNext == NO && indexPath.row >= _results.count - 10) {
         _fetchingNext = YES;
-        [self fetchNextPage];
+        [self fetchNextPageForTableView:tableView];
     }
     
     
@@ -86,8 +104,6 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] init];
     }
-    
-    cell.tag = indexPath.row;
     
     if (indexPath.row > _results.count -1) {
         cell.textLabel.text = @"Loading...";

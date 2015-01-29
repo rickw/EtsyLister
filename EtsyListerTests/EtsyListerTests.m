@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "EtsyDataSource.h"
 
 @interface EtsyListerTests : XCTestCase
-
+@property (nonatomic, strong) EtsyDataSource *dataSource;
+@property (nonatomic, strong) UITableView    *tableView;
 @end
 
 @implementation EtsyListerTests
@@ -18,16 +20,28 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    _dataSource = [[EtsyDataSource alloc] init];
+    _tableView  = [[UITableView alloc] init];
+    _tableView.dataSource = _dataSource;
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
+    _dataSource = nil;
+    _tableView = nil;
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- (void)testQueryResultSize {
+    XCTestExpectation *pageLaded = [self expectationWithDescription:@"Page Loaded"];
+    _dataSource.loadBlock = ^{
+        XCTAssertEqual(50100, [_dataSource tableView:_tableView numberOfRowsInSection:1], @"supposed to be 50100");
+        [pageLaded fulfill];
+    };
+    
+    [_dataSource getFirstPageForTableView:_tableView withKeywords:@"leather"];
+    
+    [self waitForExpectationsWithTimeout:5 handler:nil];
 }
 
 - (void)testPerformanceExample {
