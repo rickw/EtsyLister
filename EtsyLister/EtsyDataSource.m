@@ -106,7 +106,7 @@
         [self fetchNextPageForTableView:tableView];
     }
     
-    NSLog(@"===> %lu %li", (unsigned long)_results.count, (long)indexPath.row);
+//    NSLog(@"===> %lu %li", (unsigned long)_results.count, (long)indexPath.row);
     
     EtsyCell *cell = [tableView dequeueReusableCellWithIdentifier:@"EtsyCell"];
     if (cell == nil) {
