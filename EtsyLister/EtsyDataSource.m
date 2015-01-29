@@ -10,11 +10,11 @@
 #import "Cumulus.h"
 
 @interface EtsyDataSource ()
-@property (nonatomic, strong) CMResource        *etsy;
-@property (nonatomic, strong) NSNumber          *totalCount;
-@property (nonatomic, assign) NSNumber          *nextPage;
-@property (nonatomic, strong) NSMutableArray    *results;
-@property (nonatomic, assign) BOOL              fetchingNext;
+@property (strong, nonatomic) CMResource        *etsy;
+@property (strong, nonatomic) NSNumber          *totalCount;
+@property (assign)            NSNumber          *nextPage;
+@property (strong, nonatomic) NSMutableArray    *results;
+@property (assign)            BOOL              fetchingNext;
 @end
 
 @implementation EtsyDataSource
@@ -26,6 +26,7 @@
         _etsy = [CMResource withURL:@"https://api.etsy.com/v2/listings/active"];
         _etsy.query = @{@"api_key": @"liwecjs0c3ssk6let4p1wqt9",
                         @"includes": @"MainImage"};
+        _etsy.contentType = CMContentTypeJSON;
         _results = [NSMutableArray array];
         _fetchingNext = NO;
         NSLog(@"initialized...");

@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) EtsyDataSource *dataSource;
+@property (strong, nonatomic) EtsyDataSource *dataSource;
 @end
 
 @implementation ViewController
@@ -28,7 +28,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    [_dataSource getFirstPageForTableView:_tableView withKeywords:@"Build Along Leather Pattern 2: Coin and Card Wallets"];
+    [_dataSource getFirstPageForTableView:_tableView withKeywords:@"leather"];
 }
 
 - (void)didReceiveMemoryWarning {
