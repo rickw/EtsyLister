@@ -20,38 +20,61 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="orh-rb-ofg">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="780" id="ckK-QE-GMM"/>
-                                </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EtsyCell" id="xMq-kd-RA3" customClass="EtsyCell">
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="EtsyCell" rowHeight="75" id="xMq-kd-RA3" customClass="EtsyCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xMq-kd-RA3" id="qCR-NM-tqE">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Vxs-BC-gSV">
+                                                    <rect key="frame" x="290" y="28" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ODa-lp-RdI">
+                                                    <rect key="frame" x="83" y="0.0" width="509" height="75"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EtsyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-Yh-TPG">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="QgU-g2-irq"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="centerY" secondItem="Vxs-BC-gSV" secondAttribute="centerY" id="0BU-Dq-qwj"/>
+                                                <constraint firstItem="ODa-lp-RdI" firstAttribute="top" secondItem="aRz-Yh-TPG" secondAttribute="top" id="7dd-ED-HbK"/>
+                                                <constraint firstItem="aRz-Yh-TPG" firstAttribute="top" secondItem="qCR-NM-tqE" secondAttribute="top" id="EWB-OM-OKI"/>
+                                                <constraint firstItem="ODa-lp-RdI" firstAttribute="leading" secondItem="aRz-Yh-TPG" secondAttribute="trailing" constant="8" symbolic="YES" id="HOG-lu-p7u"/>
+                                                <constraint firstItem="aRz-Yh-TPG" firstAttribute="leading" secondItem="qCR-NM-tqE" secondAttribute="leading" id="Kmf-s7-qGd"/>
+                                                <constraint firstItem="ODa-lp-RdI" firstAttribute="trailing" secondItem="qCR-NM-tqE" secondAttribute="trailingMargin" id="SdZ-vO-0kt"/>
+                                                <constraint firstAttribute="centerX" secondItem="Vxs-BC-gSV" secondAttribute="centerX" id="x82-xE-kZA"/>
+                                                <constraint firstItem="aRz-Yh-TPG" firstAttribute="bottom" secondItem="ODa-lp-RdI" secondAttribute="bottom" id="yRE-5R-I9A"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="Vxs-BC-gSV" id="aFU-k8-y3g"/>
+                                            <outlet property="descriptionLabel" destination="ODa-lp-RdI" id="Suj-ec-hqS"/>
+                                            <outlet property="imageView" destination="aRz-Yh-TPG" id="fE8-Dc-lmT"/>
+                                            <outlet property="itemImage" destination="aRz-Yh-TPG" id="NSL-3L-tSe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ckK-QE-GMM"/>
-                                    </mask>
-                                </variation>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="orh-rb-ofg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bpj-Fp-Kom"/>
                             <constraint firstItem="orh-rb-ofg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="20" id="I2H-Dw-6fc"/>
                             <constraint firstItem="orh-rb-ofg" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="OAq-sw-BJf"/>
                             <constraint firstItem="orh-rb-ofg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gas-hY-XxK"/>
                             <constraint firstAttribute="centerX" secondItem="orh-rb-ofg" secondAttribute="centerX" id="jMR-sf-vaW"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Bpj-Fp-Kom"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="orh-rb-ofg" id="YdE-Op-GEZ"/>
@@ -61,4 +84,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="EtsyLogo" width="75" height="75"/>
+    </resources>
 </document>

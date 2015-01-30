@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EtsyCell : UITableViewCell
+@property (strong, nonatomic)        NSString *imageURL;
+@property (weak, nonatomic) IBOutlet UIImageView *itemImage;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 - (void)fadeIn;
+- (void)fadeOut;
 @end

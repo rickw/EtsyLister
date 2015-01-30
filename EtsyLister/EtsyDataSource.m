@@ -10,12 +10,15 @@
 #import "Cumulus.h"
 #import "EtsyCell.h"
 
+#define BATCH_SIZE 25
+
 @interface EtsyDataSource ()
 @property (strong, nonatomic) CMResource        *etsy;
 @property (strong, nonatomic) NSNumber          *totalCount;
 @property (assign)            NSNumber          *nextPage;
 @property (strong, nonatomic) NSMutableArray    *results;
 @property (assign)            BOOL              fetchingNext;
+@property (assign)            BOOL              fadeIn;
 @end
 
 @implementation EtsyDataSource
@@ -26,10 +29,12 @@
     if (self = [super init]) {
         _etsy = [CMResource withURL:@"https://api.etsy.com/v2/listings/active"];
         _etsy.query = @{@"api_key": @"liwecjs0c3ssk6let4p1wqt9",
-                        @"includes": @"MainImage"};
+                        @"includes": @"MainImage",
+                        @"limit": @BATCH_SIZE};
         _etsy.contentType = CMContentTypeJSON;
         _results = [NSMutableArray array];
         _fetchingNext = NO;
+        _fadeIn = YES;
         NSLog(@"initialized...");
     }
     
@@ -80,7 +85,12 @@
             [_results addObjectsFromArray:[response.result objectForKey:@"results"]];
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                _fadeIn = NO;
                 [tableView reloadData];
+                
+//                if (tableView.decelerating == NO) {
+//                    [self refreshCells:tableView.visibleCells];
+//                }
                 
                 if (_loadBlock) {
                     _loadBlock();
@@ -93,10 +103,23 @@
     }
 }
 
+- (NSString *)imageURLforItem:(NSInteger)item {
+    return _results[item][@"MainImage"][@"url_75x75"];
+}
+
 #pragma mark - table view methods
 
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    NSLog(@"end decelerating");
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    _fadeIn = YES;
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1f;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 75.0f;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -113,19 +136,33 @@
         cell = [[EtsyCell alloc] init];
     }
     
+    cell.tag = indexPath.row;
+    cell.descriptionLabel.text = nil;
+    [cell.activityIndicator stopAnimating];
+    cell.itemImage.image = [UIImage imageNamed:@"EtsyLogo"];
+    cell.itemImage.hidden = NO;
+    
     if (indexPath.row >= _results.count) {
-        cell.textLabel.text = @"Loading...";
+        [cell.activityIndicator startAnimating];
+        cell.itemImage.hidden = YES;
     } else {
-        cell.textLabel.text = [[_results objectAtIndex:indexPath.row] objectForKey:@"title"];
+        cell.descriptionLabel.text = [[_results objectAtIndex:indexPath.row] objectForKey:@"title"];
+        cell.imageURL = [self imageURLforItem:indexPath.row];
+        NSLog(@"- %@", [self imageURLforItem:indexPath.row]);
     }
     
-    [cell fadeIn];
+    if (_fadeIn) {
+        [cell fadeIn];
+    }
+
+    [cell setNeedsUpdateConstraints];
     
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _totalCount.intValue + 1;
+//    return _totalCount.intValue;
+    return _results.count + 1;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

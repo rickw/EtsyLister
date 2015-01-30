@@ -14,4 +14,5 @@ typedef void (^LoadBlock)();
 @property (copy) LoadBlock loadBlock;
 
 - (void)getFirstPageForTableView:(UITableView *)tableView withKeywords:(NSString *)keywords;
+
 @end
