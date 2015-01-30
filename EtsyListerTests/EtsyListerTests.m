@@ -34,7 +34,7 @@
 
 - (void)testQueryResultSize {
     XCTestExpectation *pageLaded = [self expectationWithDescription:@"Page Loaded"];
-    NSInteger expected = 50101;
+    NSInteger expected = 26;
     __weak EtsyListerTests *weakSelf = self;
     _dataSource.loadBlock = ^{
         XCTAssertEqual(expected, [weakSelf.dataSource tableView:weakSelf.tableView numberOfRowsInSection:1], @"supposed to be %li", (long)expected);
