@@ -11,7 +11,8 @@
 typedef void (^LoadBlock)();
 
 @interface EtsyDataSource : NSObject <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
-@property (copy) LoadBlock loadBlock;
+@property (copy)     LoadBlock loadBlock;
+@property (readonly) NSInteger fetchBatchSize;
 
 - (void)getFirstPageForTableView:(UITableView *)tableView withKeywords:(NSString *)keywords;
 

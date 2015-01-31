@@ -35,6 +35,7 @@
         _results = [NSMutableArray array];
         _fetchingNext = NO;
         _fadeIn = YES;
+        _fetchBatchSize = BATCH_SIZE;
         NSLog(@"initialized...");
     }
     
