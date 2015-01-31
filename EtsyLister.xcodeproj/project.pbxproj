@@ -19,6 +19,14 @@
 		1D6EB5231A7974FE00B3A617 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */; };
 		1D6EB5251A79773400B3A617 /* libCumulus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5241A79773400B3A617 /* libCumulus.a */; };
 		1D6EB5291A7AB74B00B3A617 /* EtsyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5281A7AB74B00B3A617 /* EtsyCell.m */; };
+		1D6EB53E1A7C51E900B3A617 /* HNKCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB52F1A7C51E900B3A617 /* HNKCache.m */; };
+		1D6EB53F1A7C51E900B3A617 /* HNKDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5311A7C51E900B3A617 /* HNKDiskCache.m */; };
+		1D6EB5401A7C51E900B3A617 /* HNKDiskFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5331A7C51E900B3A617 /* HNKDiskFetcher.m */; };
+		1D6EB5411A7C51E900B3A617 /* HNKNetworkFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5351A7C51E900B3A617 /* HNKNetworkFetcher.m */; };
+		1D6EB5421A7C51E900B3A617 /* HNKSimpleFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5371A7C51E900B3A617 /* HNKSimpleFetcher.m */; };
+		1D6EB5431A7C51E900B3A617 /* UIButton+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5391A7C51E900B3A617 /* UIButton+Haneke.m */; };
+		1D6EB5441A7C51E900B3A617 /* UIImageView+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB53B1A7C51E900B3A617 /* UIImageView+Haneke.m */; };
+		1D6EB5451A7C51E900B3A617 /* UIView+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB53D1A7C51E900B3A617 /* UIView+Haneke.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +60,24 @@
 		1D6EB5241A79773400B3A617 /* libCumulus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCumulus.a; path = "External/Cumulus/build/Debug-iphoneos/libCumulus.a"; sourceTree = "<group>"; };
 		1D6EB5271A7AB74B00B3A617 /* EtsyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EtsyCell.h; sourceTree = "<group>"; };
 		1D6EB5281A7AB74B00B3A617 /* EtsyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EtsyCell.m; sourceTree = "<group>"; };
+		1D6EB52A1A7C502300B3A617 /* libHaneke.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libHaneke.a; path = "External/Haneke/build/Debug-iphoneos/libHaneke.a"; sourceTree = "<group>"; };
+		1D6EB52D1A7C51E900B3A617 /* Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Haneke.h; sourceTree = "<group>"; };
+		1D6EB52E1A7C51E900B3A617 /* HNKCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKCache.h; sourceTree = "<group>"; };
+		1D6EB52F1A7C51E900B3A617 /* HNKCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKCache.m; sourceTree = "<group>"; };
+		1D6EB5301A7C51E900B3A617 /* HNKDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKDiskCache.h; sourceTree = "<group>"; };
+		1D6EB5311A7C51E900B3A617 /* HNKDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKDiskCache.m; sourceTree = "<group>"; };
+		1D6EB5321A7C51E900B3A617 /* HNKDiskFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKDiskFetcher.h; sourceTree = "<group>"; };
+		1D6EB5331A7C51E900B3A617 /* HNKDiskFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKDiskFetcher.m; sourceTree = "<group>"; };
+		1D6EB5341A7C51E900B3A617 /* HNKNetworkFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKNetworkFetcher.h; sourceTree = "<group>"; };
+		1D6EB5351A7C51E900B3A617 /* HNKNetworkFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKNetworkFetcher.m; sourceTree = "<group>"; };
+		1D6EB5361A7C51E900B3A617 /* HNKSimpleFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HNKSimpleFetcher.h; sourceTree = "<group>"; };
+		1D6EB5371A7C51E900B3A617 /* HNKSimpleFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HNKSimpleFetcher.m; sourceTree = "<group>"; };
+		1D6EB5381A7C51E900B3A617 /* UIButton+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Haneke.h"; sourceTree = "<group>"; };
+		1D6EB5391A7C51E900B3A617 /* UIButton+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Haneke.m"; sourceTree = "<group>"; };
+		1D6EB53A1A7C51E900B3A617 /* UIImageView+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Haneke.h"; sourceTree = "<group>"; };
+		1D6EB53B1A7C51E900B3A617 /* UIImageView+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Haneke.m"; sourceTree = "<group>"; };
+		1D6EB53C1A7C51E900B3A617 /* UIView+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Haneke.h"; sourceTree = "<group>"; };
+		1D6EB53D1A7C51E900B3A617 /* UIView+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Haneke.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +123,7 @@
 		1D6EB4E41A79636D00B3A617 /* EtsyLister */ = {
 			isa = PBXGroup;
 			children = (
+				1D6EB52C1A7C51E900B3A617 /* Haneke */,
 				1D6EB4E91A79636D00B3A617 /* AppDelegate.h */,
 				1D6EB4EA1A79636D00B3A617 /* AppDelegate.m */,
 				1D6EB4EC1A79636D00B3A617 /* ViewController.h */,
@@ -142,12 +169,38 @@
 		1D6EB5261A797F2B00B3A617 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D6EB52A1A7C502300B3A617 /* libHaneke.a */,
 				1D6EB5241A79773400B3A617 /* libCumulus.a */,
 				1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */,
 				1D6EB5201A7970C700B3A617 /* Security.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		1D6EB52C1A7C51E900B3A617 /* Haneke */ = {
+			isa = PBXGroup;
+			children = (
+				1D6EB52D1A7C51E900B3A617 /* Haneke.h */,
+				1D6EB52E1A7C51E900B3A617 /* HNKCache.h */,
+				1D6EB52F1A7C51E900B3A617 /* HNKCache.m */,
+				1D6EB5301A7C51E900B3A617 /* HNKDiskCache.h */,
+				1D6EB5311A7C51E900B3A617 /* HNKDiskCache.m */,
+				1D6EB5321A7C51E900B3A617 /* HNKDiskFetcher.h */,
+				1D6EB5331A7C51E900B3A617 /* HNKDiskFetcher.m */,
+				1D6EB5341A7C51E900B3A617 /* HNKNetworkFetcher.h */,
+				1D6EB5351A7C51E900B3A617 /* HNKNetworkFetcher.m */,
+				1D6EB5361A7C51E900B3A617 /* HNKSimpleFetcher.h */,
+				1D6EB5371A7C51E900B3A617 /* HNKSimpleFetcher.m */,
+				1D6EB5381A7C51E900B3A617 /* UIButton+Haneke.h */,
+				1D6EB5391A7C51E900B3A617 /* UIButton+Haneke.m */,
+				1D6EB53A1A7C51E900B3A617 /* UIImageView+Haneke.h */,
+				1D6EB53B1A7C51E900B3A617 /* UIImageView+Haneke.m */,
+				1D6EB53C1A7C51E900B3A617 /* UIView+Haneke.h */,
+				1D6EB53D1A7C51E900B3A617 /* UIView+Haneke.m */,
+			);
+			name = Haneke;
+			path = External/Haneke/Haneke;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -250,11 +303,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6EB5431A7C51E900B3A617 /* UIButton+Haneke.m in Sources */,
+				1D6EB5401A7C51E900B3A617 /* HNKDiskFetcher.m in Sources */,
+				1D6EB5441A7C51E900B3A617 /* UIImageView+Haneke.m in Sources */,
+				1D6EB5421A7C51E900B3A617 /* HNKSimpleFetcher.m in Sources */,
 				1D6EB5291A7AB74B00B3A617 /* EtsyCell.m in Sources */,
 				1D6EB4EE1A79636D00B3A617 /* ViewController.m in Sources */,
+				1D6EB53F1A7C51E900B3A617 /* HNKDiskCache.m in Sources */,
 				1D6EB4EB1A79636D00B3A617 /* AppDelegate.m in Sources */,
 				1D6EB4E81A79636D00B3A617 /* main.m in Sources */,
+				1D6EB53E1A7C51E900B3A617 /* HNKCache.m in Sources */,
 				1D6EB5101A796DA800B3A617 /* EtsyDataSource.m in Sources */,
+				1D6EB5451A7C51E900B3A617 /* UIView+Haneke.m in Sources */,
+				1D6EB5411A7C51E900B3A617 /* HNKNetworkFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +450,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/External/Cumulus/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/External/Haneke/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -410,6 +472,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/External/Cumulus/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/External/Haneke/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

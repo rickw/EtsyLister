@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EtsyCell : UITableViewCell
+@interface EtsyCell : UITableViewCell {
+    NSString *_imageURL;
+}
 @property (strong, nonatomic)        NSString *imageURL;
 @property (weak, nonatomic) IBOutlet UIImageView *itemImage;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;

@@ -1,3 +1,6 @@
 [submodule "External/Cumulus"]
 	path = External/Cumulus
 	url = git@github.com:FivesquareSoftware/Cumulus.git
+[submodule "External/Haneke"]
+	path = External/Haneke
+	url = git@github.com:Haneke/Haneke.git

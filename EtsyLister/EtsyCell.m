@@ -7,6 +7,7 @@
 //
 
 #import "EtsyCell.h"
+#import "Haneke.h"
 
 @implementation EtsyCell
 
@@ -21,6 +22,22 @@
 - (void)awakeFromNib {
     // Initialization code
 
+}
+
+#pragma mark - accessors
+
+- (NSString *)imageURL {
+    return _imageURL;
+}
+
+- (void)setImageURL:(NSString *)imageURL {
+    if ([_imageURL isEqualToString:imageURL] == NO) {
+        _imageURL = imageURL;
+        
+        if (_imageURL) {
+            [_itemImage hnk_setImageFromURL:[NSURL URLWithString:_imageURL] placeholder:[UIImage imageNamed:@"EtsyLogo"]];
+        }
+    }
 }
 
 #pragma mark - custom methods

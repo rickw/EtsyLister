@@ -139,7 +139,7 @@
     cell.tag = indexPath.row;
     cell.descriptionLabel.text = nil;
     [cell.activityIndicator stopAnimating];
-    cell.itemImage.image = [UIImage imageNamed:@"EtsyLogo"];
+//    cell.itemImage.image = [UIImage imageNamed:@"EtsyLogo"];
     cell.itemImage.hidden = NO;
     
     if (indexPath.row >= _results.count) {
@@ -148,7 +148,6 @@
     } else {
         cell.descriptionLabel.text = [[_results objectAtIndex:indexPath.row] objectForKey:@"title"];
         cell.imageURL = [self imageURLforItem:indexPath.row];
-        NSLog(@"- %@", [self imageURLforItem:indexPath.row]);
     }
     
     if (_fadeIn) {
