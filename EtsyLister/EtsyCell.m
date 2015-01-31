@@ -43,21 +43,19 @@
 #pragma mark - custom methods
 
 - (void)fadeIn {
-    self.alpha = 0.0f;
-    
     [UIView animateWithDuration:0.5
                      animations:^{
                          self.alpha = 1.0f;
                      }
-                     completion:^(BOOL finished){}];
+                     completion:nil];
 }
 
 - (void)fadeOut {
-    self.alpha = 1.0f;
-    
     [UIView animateWithDuration:0.5
-                     animations:^{ self.alpha = 0.0f; }
-                     completion:^(BOOL finished){}];
+                     animations:^{
+                         self.alpha = 0.25f;
+                     }
+                     completion:nil];
 }
 
 #pragma mark - interaction methods

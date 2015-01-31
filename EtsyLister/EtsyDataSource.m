@@ -17,6 +17,7 @@
 @property (strong, nonatomic) NSNumber          *totalCount;
 @property (assign)            NSNumber          *nextPage;
 @property (strong, nonatomic) NSMutableArray    *results;
+@property (strong, nonatomic) NSString          *searchTerm;
 @property (assign)            BOOL              fetchingNext;
 @property (assign)            BOOL              fadeIn;
 @end
@@ -42,35 +43,57 @@
     return self;
 }
 
+#pragma mark - computed accessor methods
+
+- (NSInteger)numberOfRows {
+    NSInteger number = 0;
+
+    if (_searchTerm && _results.count == 0) {
+        number = 1;
+    } else if (_searchTerm && _results.count < _totalCount.integerValue) {
+        return _results.count + 1;
+    } else {
+        return _results.count;
+    }
+    
+    return number;
+}
+
 #pragma mark - data fetching methods
 
 - (void)getFirstPageForTableView:(UITableView *)tableView withKeywords:(NSString *)keywords {
     NSLog(@"getResults");
     [_results removeAllObjects];
+    [tableView reloadData];
     _totalCount = nil;
     _nextPage = nil;
+    _searchTerm = keywords;
     
-    NSMutableDictionary *newQuery = [NSMutableDictionary dictionaryWithDictionary:_etsy.query];
-    newQuery[@"keywords"] = [keywords stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    [newQuery removeObjectForKey:@"page"];
-    _etsy.query = newQuery;
-    
-    [_etsy getWithCompletionBlock:^(CMResponse *response) {
-        _totalCount = [response.result objectForKey:@"count"];
-        _nextPage = [[response.result objectForKey:@"pagination"] objectForKey:@"next_page"];
+    if (keywords && keywords.length > 0) {
+        NSMutableDictionary *newQuery = [NSMutableDictionary dictionaryWithDictionary:_etsy.query];
+        newQuery[@"keywords"] = [_searchTerm stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        [newQuery removeObjectForKey:@"page"];
+        _etsy.query = newQuery;
         
-        [_results addObjectsFromArray:[response.result objectForKey:@"results"]];
-        
-        NSLog(@"---> %lu ---> %@ ---> %@", (unsigned long)_results.count, _nextPage, _totalCount);
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [tableView reloadData];
+        [_etsy getWithCompletionBlock:^(CMResponse *response) {
+            _totalCount = [response.result objectForKey:@"count"];
+            _nextPage = [[response.result objectForKey:@"pagination"] objectForKey:@"next_page"];
             
-            if (_loadBlock) {
-                _loadBlock();
-            }
-        });
-    }];
+            [_results addObjectsFromArray:[response.result objectForKey:@"results"]];
+            
+            NSLog(@"---> %lu ---> %@ ---> %@", (unsigned long)_results.count, _nextPage, _totalCount);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [tableView reloadData];
+                
+                if (_loadBlock) {
+                    _loadBlock();
+                }
+            });
+        }];
+    } else {
+        _searchTerm = nil;
+    }
 }
 
 - (void)fetchNextPageForTableView:(UITableView *)tableView {
@@ -104,8 +127,20 @@
     }
 }
 
+#pragma mark - utility methods
+
 - (NSString *)imageURLforItem:(NSInteger)item {
     return _results[item][@"MainImage"][@"url_75x75"];
+}
+
+- (NSString *)titleDisplayString:(NSInteger)index {
+    NSString *titleString  = [[_results objectAtIndex:index] objectForKey:@"title"];
+    
+    if (titleString.length > 80) {
+        titleString = [NSString stringWithFormat:@"%@...", [titleString substringToIndex:80]];
+    }
+    
+    return titleString;
 }
 
 #pragma mark - table view methods
@@ -140,14 +175,18 @@
     cell.tag = indexPath.row;
     cell.descriptionLabel.text = nil;
     [cell.activityIndicator stopAnimating];
-//    cell.itemImage.image = [UIImage imageNamed:@"EtsyLogo"];
     cell.itemImage.hidden = NO;
     
     if (indexPath.row >= _results.count) {
-        [cell.activityIndicator startAnimating];
-        cell.itemImage.hidden = YES;
+        if (_totalCount != nil && _totalCount.intValue == 0) {
+            cell.descriptionLabel.text = @"Not Found";
+            cell.itemImage.image = [UIImage imageNamed:@"NotFound"];
+        } else {
+            [cell.activityIndicator startAnimating];
+            cell.itemImage.hidden = YES;
+        }
     } else {
-        cell.descriptionLabel.text = [[_results objectAtIndex:indexPath.row] objectForKey:@"title"];
+        cell.descriptionLabel.text = [self titleDisplayString:indexPath.row];
         cell.imageURL = [self imageURLforItem:indexPath.row];
     }
     
@@ -162,7 +201,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //    return _totalCount.intValue;
-    return _results.count + 1;
+    return self.numberOfRows;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
