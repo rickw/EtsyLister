@@ -112,10 +112,6 @@
                 _fadeIn = NO;
                 [tableView reloadData];
                 
-//                if (tableView.decelerating == NO) {
-//                    [self refreshCells:tableView.visibleCells];
-//                }
-                
                 if (_loadBlock) {
                     _loadBlock();
                 }
