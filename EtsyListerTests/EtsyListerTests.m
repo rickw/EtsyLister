@@ -11,8 +11,9 @@
 #import "EtsyDataSource.h"
 
 @interface EtsyListerTests : XCTestCase
-@property (nonatomic, strong) EtsyDataSource *dataSource;
-@property (nonatomic, strong) UITableView    *tableView;
+@property (nonatomic, strong) EtsyDataSource    *dataSource;
+@property (nonatomic, strong) UITableView       *tableView;
+@property (nonatomic, strong) XCTestExpectation *expect;
 @end
 
 @implementation EtsyListerTests
@@ -23,6 +24,7 @@
     _dataSource = [[EtsyDataSource alloc] init];
     _tableView  = [[UITableView alloc] init];
     _tableView.dataSource = _dataSource;
+    _expect     = [self expectationWithDescription:@"Page Loaded"];
 }
 
 - (void)tearDown {
@@ -33,12 +35,10 @@
 }
 
 - (void)testQueryResultSize {
-    XCTestExpectation *pageLaded = [self expectationWithDescription:@"Page Loaded"];
     NSInteger expected = _dataSource.fetchBatchSize + 1;
-    __weak EtsyListerTests *weakSelf = self;
+    __typeof__(self) __weak weakSelf = self;
     _dataSource.loadBlock = ^{
-        XCTAssertEqual(expected, [weakSelf.dataSource tableView:weakSelf.tableView numberOfRowsInSection:1], @"supposed to be %li", (long)expected);
-        [pageLaded fulfill];
+        [weakSelf.expect fulfill];
     };
     
     [_dataSource getFirstPageForTableView:_tableView withKeywords:@"leather"];
@@ -46,6 +46,9 @@
     [self waitForExpectationsWithTimeout:5 handler:^(NSError *err){
         _dataSource.loadBlock = nil;
     }];
+    
+    XCTAssertEqual(expected, [weakSelf.dataSource tableView:weakSelf.tableView numberOfRowsInSection:1], @"supposed to be %li", (long)expected);
+
 }
 
 //- (void)testPerformanceExample {
