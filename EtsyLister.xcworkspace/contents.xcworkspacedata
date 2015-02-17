@@ -4,7 +4,4 @@
    <FileRef
       location = "group:EtsyLister.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:External/Cumulus/Cumulus.xcodeproj">
-   </FileRef>
 </Workspace>

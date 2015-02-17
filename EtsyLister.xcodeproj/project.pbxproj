@@ -17,7 +17,6 @@
 		1D6EB5101A796DA800B3A617 /* EtsyDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB50F1A796DA800B3A617 /* EtsyDataSource.m */; };
 		1D6EB5211A7970C700B3A617 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5201A7970C700B3A617 /* Security.framework */; };
 		1D6EB5231A7974FE00B3A617 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */; };
-		1D6EB5251A79773400B3A617 /* libCumulus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6EB5241A79773400B3A617 /* libCumulus.a */; };
 		1D6EB5291A7AB74B00B3A617 /* EtsyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5281A7AB74B00B3A617 /* EtsyCell.m */; };
 		1D6EB53E1A7C51E900B3A617 /* HNKCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB52F1A7C51E900B3A617 /* HNKCache.m */; };
 		1D6EB53F1A7C51E900B3A617 /* HNKDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5311A7C51E900B3A617 /* HNKDiskCache.m */; };
@@ -27,6 +26,7 @@
 		1D6EB5431A7C51E900B3A617 /* UIButton+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB5391A7C51E900B3A617 /* UIButton+Haneke.m */; };
 		1D6EB5441A7C51E900B3A617 /* UIImageView+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB53B1A7C51E900B3A617 /* UIImageView+Haneke.m */; };
 		1D6EB5451A7C51E900B3A617 /* UIView+Haneke.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6EB53D1A7C51E900B3A617 /* UIView+Haneke.m */; };
+		9C556DA51A92C219008B28C7 /* libCumulus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C556D961A92C17F008B28C7 /* libCumulus.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,34 @@
 			proxyType = 1;
 			remoteGlobalIDString = 1D6EB4E11A79636D00B3A617;
 			remoteInfo = EtsyLister;
+		};
+		9C556D951A92C17F008B28C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A414FD4213DB459200F96152;
+			remoteInfo = CumulusLib;
+		};
+		9C556D971A92C17F008B28C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A43E639E152A47E6006AEBCD;
+			remoteInfo = CumulusFramework;
+		};
+		9C556D991A92C17F008B28C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A46269A114198ED3005544D6;
+			remoteInfo = CumulusSpecs;
+		};
+		9C556DA61A92C222008B28C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A414FD4113DB459200F96152;
+			remoteInfo = CumulusLib;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -78,6 +106,8 @@
 		1D6EB53B1A7C51E900B3A617 /* UIImageView+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Haneke.m"; sourceTree = "<group>"; };
 		1D6EB53C1A7C51E900B3A617 /* UIView+Haneke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Haneke.h"; sourceTree = "<group>"; };
 		1D6EB53D1A7C51E900B3A617 /* UIView+Haneke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Haneke.m"; sourceTree = "<group>"; };
+		9C556D8C1A92C153008B28C7 /* Cumulus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cumulus.framework; path = External/Cumulus/build/Debug/Cumulus.framework; sourceTree = "<group>"; };
+		9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Cumulus.xcodeproj; path = External/Cumulus/Cumulus.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +115,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D6EB5251A79773400B3A617 /* libCumulus.a in Frameworks */,
+				9C556DA51A92C219008B28C7 /* libCumulus.a in Frameworks */,
 				1D6EB5231A7974FE00B3A617 /* MobileCoreServices.framework in Frameworks */,
 				1D6EB5211A7970C700B3A617 /* Security.framework in Frameworks */,
 			);
@@ -169,6 +199,8 @@
 		1D6EB5261A797F2B00B3A617 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */,
+				9C556D8C1A92C153008B28C7 /* Cumulus.framework */,
 				1D6EB52A1A7C502300B3A617 /* libHaneke.a */,
 				1D6EB5241A79773400B3A617 /* libCumulus.a */,
 				1D6EB5221A7974FE00B3A617 /* MobileCoreServices.framework */,
@@ -202,6 +234,16 @@
 			path = External/Haneke/Haneke;
 			sourceTree = SOURCE_ROOT;
 		};
+		9C556D8F1A92C17F008B28C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C556D961A92C17F008B28C7 /* libCumulus.a */,
+				9C556D981A92C17F008B28C7 /* Cumulus.framework */,
+				9C556D9A1A92C17F008B28C7 /* Cumulus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,6 +258,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9C556DA71A92C222008B28C7 /* PBXTargetDependency */,
 			);
 			name = EtsyLister;
 			productName = EtsyLister;
@@ -270,6 +313,12 @@
 			mainGroup = 1D6EB4D91A79636D00B3A617;
 			productRefGroup = 1D6EB4E31A79636D00B3A617 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9C556D8F1A92C17F008B28C7 /* Products */;
+					ProjectRef = 9C556D8E1A92C17F008B28C7 /* Cumulus.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6EB4E11A79636D00B3A617 /* EtsyLister */,
@@ -277,6 +326,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9C556D961A92C17F008B28C7 /* libCumulus.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libCumulus.a;
+			remoteRef = 9C556D951A92C17F008B28C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C556D981A92C17F008B28C7 /* Cumulus.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Cumulus.framework;
+			remoteRef = 9C556D971A92C17F008B28C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9C556D9A1A92C17F008B28C7 /* Cumulus.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Cumulus.app;
+			remoteRef = 9C556D991A92C17F008B28C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1D6EB4E01A79636D00B3A617 /* Resources */ = {
@@ -334,6 +407,11 @@
 			isa = PBXTargetDependency;
 			target = 1D6EB4E11A79636D00B3A617 /* EtsyLister */;
 			targetProxy = 1D6EB4FC1A79636D00B3A617 /* PBXContainerItemProxy */;
+		};
+		9C556DA71A92C222008B28C7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CumulusLib;
+			targetProxy = 9C556DA61A92C222008B28C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -440,6 +518,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/Cumulus/build/Debug",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -458,6 +540,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/External/Cumulus/build/Debug",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
